@@ -15,11 +15,12 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
+
 </head>
 <body>
 	<!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+<script type="text/javascript" src="assets/javascript.js"></script>
 
 <div class="jumbotron">
 	<div class="container">
@@ -38,70 +39,9 @@
 <div class="row">
   <div class="col-md-12" id="firstQ"></div>
 </div>
-
-
-
-
 </div>
 
-<script type="text/javascript">
 
-$(document).ready(function(){
-var timer = 6;
-
-var intervalId;
-
-$("#impButton").on("click", run);
-
-function run() {
-	intervalId = setInterval(decrement, 1000);
-
-	var html =
-
-		"<p> Question 1:</p>" +
-		"<p> What is a goobber?</p>";
-
-		document.querySelector("#firstQ").innerHTML = html;
-}
-
-
-
-function decrement(){
-	timer--;
-
-	$("#Clock").html("<h2>Time Left: " + timer + " Seconds</h2>");
-
-
-	if (timer === 0) {
-		stop();
-	}
-}
-
-function stop() {
-	clearInterval(intervalId);
-}
-
-
-
-//  $("#impButton").click(function(){
-// 	var html =
-
-// 		"<p> Question 1:</p>" +
-// 		"<p> What is a goobber?</p>";
-
-// 		document.querySelector("#wut").innerHTML = html;
-// });
-
-});
-// ****On the backburner, trying another method***///
-// setTimeout(fiveSeconds, 1000 * 5);
-
-// function fiveSeconds(){
-// 	$("#Clock").append("<h2>wut</h2>");
-	
-// }
-
-</script>
 
 
 
