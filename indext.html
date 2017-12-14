@@ -32,14 +32,21 @@
 <div class="container">
 	
 <div class="row">
+  <div class="col-md-12" id="Clock"></div>
+</div>
+
+<div class="row">
   <div class="col-md-12" id="firstQ"></div>
 </div>
+
+
 
 
 </div>
 
 <script type="text/javascript">
-	
+
+$(document).ready(function(){
 var timer = 6;
 
 var intervalId;
@@ -48,6 +55,13 @@ $("#impButton").on("click", run);
 
 function run() {
 	intervalId = setInterval(decrement, 1000);
+
+	var html =
+
+		"<p> Question 1:</p>" +
+		"<p> What is a goobber?</p>";
+
+		document.querySelector("#firstQ").innerHTML = html;
 }
 
 
@@ -55,7 +69,7 @@ function run() {
 function decrement(){
 	timer--;
 
-	$("#firstQ").html("<h2>Time Left: " + timer + " Seconds</h2>");
+	$("#Clock").html("<h2>Time Left: " + timer + " Seconds</h2>");
 
 
 	if (timer === 0) {
@@ -68,13 +82,22 @@ function stop() {
 }
 
 
-run();
 
+//  $("#impButton").click(function(){
+// 	var html =
+
+// 		"<p> Question 1:</p>" +
+// 		"<p> What is a goobber?</p>";
+
+// 		document.querySelector("#wut").innerHTML = html;
+// });
+
+});
 // ****On the backburner, trying another method***///
 // setTimeout(fiveSeconds, 1000 * 5);
 
 // function fiveSeconds(){
-// 	$("#firstQ").append("<h2>wut</h2>");
+// 	$("#Clock").append("<h2>wut</h2>");
 	
 // }
 
