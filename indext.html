@@ -40,10 +40,35 @@
 
 <script type="text/javascript">
 	
+var timer = 6;
+
+var intervalId;
+
+$("#impButton").on("click", run);
+
+function run() {
+	intervalId = setInterval(decrement, 1000);
+}
 
 
 
+function decrement(){
+	timer--;
 
+	$("#firstQ").html("<h2>Time Left: " + timer + " Seconds</h2>");
+
+
+	if (timer === 0) {
+		stop();
+	}
+}
+
+function stop() {
+	clearInterval(intervalId);
+}
+
+
+run();
 
 // ****On the backburner, trying another method***///
 // setTimeout(fiveSeconds, 1000 * 5);
