@@ -46,28 +46,63 @@ Loops(Answers);
 var wut = Questions[0];
 var derp = Answers[0];
 
-$("impButton").on("click", firstQuestion);
+$("#impButton").on("click", firstQuestion);
 
-function firstQuestion(){
-
-console.log(firstQuestion);
-
+function firstQuestion(result){
 
 	$("#Q").html(Questions[0]);
 
+	$("#firstCho").html("<h3>Jordan</h3>");
+	$("#secondCho").html("<h3>McCringleBerry</h3>");
+	$("#thirdCho").html("<h3>Pepperwood</h3>");
+	$("#fourthCho").html(Answers[0]);
 
-
-	if (wut === derp) {
+	if (result === Answers[0]) {
 		correctAnswers++
+		
+	}
+
+	else if(timer === 0){
+		unanswered++
+		$("#Q").html("<h2>Correct Answer was Scott!</h2>")
 	}
 
 	else{
 		incorrectAnswers++
+		
 	}
 }
 
+$("#nextButton").on("click", secondQuestion,);
 
+function secondQuestion(result){
 
+	$("#Q").html(Questions[1]);
+
+	$("#firstCho").html("<h3>Battleships</h3>");
+	$("#secondCho").html("<h3>Boyz N the Hood</h3>");
+	$("#thirdCho").html(Answers[1]);
+	$("#fourthCho").html("<h3>China</h3>");
+
+	if (result === Answers[1]) {
+		correctAnswers++
+		
+	}
+
+	else if(timer === 0){
+		unanswered++
+		$("#Q").html("<h2>Correct Answer was Battlestar Galactica!</h2>")
+	}
+
+	else{
+		incorrectAnswers++
+		
+	}
+}
+
+function reset(){
+	timer = 6;
+}
 });
 // ****On the backburner, trying another method***///
 // setTimeout(fiveSeconds, 1000 * 5);
@@ -81,15 +116,6 @@ console.log(firstQuestion);
 
 
 // *****Start of Questions*****/////
-
-var position = 0;
-var correct = 0;
-var choices = 0;
-var A="";
-var B="";
-var C="";
-var D="";
-
 var Questions = [
 	["What is Michael's Last Name?", "Jordan", "McCringleBerry", "Pepperwood","Scott", "D"],
 	["Bears, Beets, ?", "Battleships", "Boyz N the Hood", "Battlestar Galactica", "China", "C"],
