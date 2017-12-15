@@ -14,6 +14,8 @@ $("#impButton").on("click", run);
 
 function run() {
 	intervalId = setInterval(decrement, 1000);
+
+	
 }
 
 function decrement(){
@@ -32,13 +34,39 @@ function stop() {
 }
 
 ///********Questions*******///
-for (var i = 0; i < Questions.length; i++){
-	console.log("wut is dis!" + Questions[i]);
+function Loops(arr){
+	for (var i = 0; i < arr.length; i++){
+		console.log(arr[i]);
+	}
 }
 
-for (var i = 0; i < Answers.length; i++){
-	console.log(Answers[i]);
+Loops(Questions);
+Loops(Answers);
+
+var wut = Questions[0];
+var derp = Answers[0];
+
+$("impButton").on("click", firstQuestion);
+
+function firstQuestion(){
+
+console.log(firstQuestion);
+
+
+	$("#Q").html(Questions[0]);
+
+
+
+	if (wut === derp) {
+		correctAnswers++
+	}
+
+	else{
+		incorrectAnswers++
+	}
 }
+
+
 
 });
 // ****On the backburner, trying another method***///
