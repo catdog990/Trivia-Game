@@ -1,6 +1,10 @@
 $(document).ready(function(){
-var timer = 6;
 
+var timer = 6;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var Questions = ["What is Michael's Last Name?", "Bears, Beets, ?", "Michael's Nickname is?", "Dwight's Choice of Crop is", "Jim is to Pam, as Dwight is to"];
+var Answers = [""]
 var intervalId;
 
 $("#impButton").on("click", run);
@@ -9,12 +13,6 @@ function run() {
 	intervalId = setInterval(decrement, 1000);
 
 // ***Questions will appear when button is clicked***///
-	var html =
-
-		"<p> Question 1: What is Michael's Last Name?</p>" +
-		"<p> </p>";
-
-		document.querySelector("#firstQ").innerHTML = html;
 }
 
 
@@ -33,17 +31,6 @@ function decrement(){
 function stop() {
 	clearInterval(intervalId);
 }
-
-
-
-//  $("#impButton").click(function(){
-// 	var html =
-
-// 		"<p> Question 1:</p>" +
-// 		"<p> What is a goobber?</p>";
-
-// 		document.querySelector("#wut").innerHTML = html;
-// });
 
 });
 // ****On the backburner, trying another method***///
@@ -74,6 +61,7 @@ var Questions = [
 	["Dwight's Choice of Crop is", "Potatos", "Beets", "Garden Gnomes", "Corn", "B"],
 	["Jim is to Pam, as Dwight is to", "Esther", "Meredith", "Kelly", "Angela", "D"]
 ];
+
 
 // function get(x){
 // 	return.document.getElementbyId(x);

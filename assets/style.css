@@ -1,0 +1,10 @@
+.jumbotron{
+	text-align: center;
+}
+
+.row{
+	text-align: center;
+	background-color: black;
+	color: white;
+	margin: 10px;
+}
