@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var timer = 6;
+var timer = 30;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0;
@@ -14,6 +14,7 @@ $("#impButton").on("click", run);
 
 function run() {
 	intervalId = setInterval(decrement, 1000);
+
 
 	
 }
@@ -50,7 +51,7 @@ $("#impButton").on("click", firstQuestion);
 
 function firstQuestion(result){
 
-	$("#Q").html(Questions[0]);
+	$("#Q").html("<h3>" + Questions[0] + "</h3>");
 
 	$("#firstCho").html("<h3>Jordan</h3>");
 	$("#secondCho").html("<h3>McCringleBerry</h3>");
@@ -73,7 +74,9 @@ function firstQuestion(result){
 	}
 }
 
-$("#nextButton").on("click", secondQuestion,);
+
+// *****Big problem with the next Button; keeps overwriting the previous question!****//
+$("#nextButton").on("click", secondQuestion);
 
 function secondQuestion(result){
 
@@ -100,31 +103,91 @@ function secondQuestion(result){
 	}
 }
 
+
+$("#nextButton").on("click", thirdQuestion);
+
+function thirdQuestion(result){
+
+	$("#Q").html(Questions[2]);
+
+	$("#firstCho").html(Answers[2]);
+	$("#secondCho").html("<h3>Jackhammer</h3>");
+	$("#thirdCho").html("<h3>Michael Scarnt</h3>");
+	$("#fourthCho").html("<h3>Sebring Seranator</h3>");
+
+	if (result === Answers[2]) {
+		correctAnswers++
+		
+	}
+
+	else if(timer === 0){
+		unanswered++
+		$("#Q").html("<h2>Correct Answer was Michael Klump!</h2>")
+	}
+
+	else{
+		incorrectAnswers++
+		
+	}
+}
+
+
+$("#nextButton").on("click", fourthQuestion);
+
+function fourthQuestion(result){
+
+	$("#Q").html(Questions[3]);
+
+	$("#firstCho").html("<h3>Potatos</h3>");
+	$("#secondCho").html(Answers[3]);
+	$("#thirdCho").html("<h3>Garden Gnomes</h3>");
+	$("#fourthCho").html("<h3>Corn</h3>");
+
+	if (result === Answers[3]) {
+		correctAnswers++
+		
+	}
+
+	else if(timer === 0){
+		unanswered++
+		$("#Q").html("<h2>Correct Answer was Michael Klump!</h2>")
+	}
+
+	else{
+		incorrectAnswers++
+		
+	}
+}
+
+$("#nextButton").on("click", fifQuestion);
+
+function fifQuestion(result){
+
+	$("#Q").html(Questions[4]);
+
+	$("#firstCho").html("<h3>Esther</h3>");
+	$("#secondCho").html("<h3>Meredith</h3>");
+	$("#thirdCho").html("<h3>Kelly</h3>");
+	$("#fourthCho").html(Answers[4]);
+
+	if (result === Answers[4]) {
+		correctAnswers++
+		
+	}
+
+	else if(timer === 0){
+		unanswered++
+		$("#Q").html("<h2>Correct Answer was Michael Klump!</h2>")
+	}
+
+	else{
+		incorrectAnswers++
+		
+	}
+}
+
+
 function reset(){
 	timer = 6;
 }
 });
-// ****On the backburner, trying another method***///
-// setTimeout(fiveSeconds, 1000 * 5);
-
-// function fiveSeconds(){
-// 	$("#Clock").append("<h2>wut</h2>");
-	
-// }
-
-
-
-
-// *****Start of Questions*****/////
-var Questions = [
-	["What is Michael's Last Name?", "Jordan", "McCringleBerry", "Pepperwood","Scott", "D"],
-	["Bears, Beets, ?", "Battleships", "Boyz N the Hood", "Battlestar Galactica", "China", "C"],
-	["Michael's Nickname is?", "Michael Klump", "Jackhammer", "Michael Scarn", "Sebring Seranator", "A"],
-	["Dwight's Choice of Crop is", "Potatos", "Beets", "Garden Gnomes", "Corn", "B"],
-	["Jim is to Pam, as Dwight is to", "Esther", "Meredith", "Kelly", "Angela", "D"]
-];
-
-
-// function get(x){
-// 	return.document.getElementbyId(x);
-// }
